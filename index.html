@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>iCoach - Minimalist Training</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <div id="home-view" class="view active">
+        <header>
+            <h1>iCoach</h1>
+            <p style="color: var(--text-dim)">Escolha o treino do dia</p>
+        </header>
+        <div id="workout-list" class="workout-list"></div>
+    </div>
+
+    <div id="workout-view" class="view">
+        <header>
+            <span onclick="goBack()" style="color: var(--accent); font-size: 14px;">← Voltar</span>
+            <h1 id="workout-title">Nome do Treino</h1>
+        </header>
+
+        <div id="workout-progress" class="progress-bar">
+            <div class="progress-bar__fill"></div>
+        </div>
+        <div id="progress-text" class="progress-bar__text">0/0 exercícios concluídos</div>
+        <div class="slider-container-wrapper">
+            <div class="slider-track" id="reset-track">
+                <span class="slider-text-bg">DESLIZE PARA RESETAR &gt; &gt; &gt;</span>
+                <div class="slider-knob" id="reset-knob">
+                    &gt;&gt;&gt;
+                </div>
+            </div>
+        </div>
+
+        <div id="exercise-list"></div>
+    </div>
+
+    <div id="challenges-view" class="view">
+        <header>
+            <span onclick="goBack()" style="color: var(--accent); font-size: 14px;">← Voltar</span>
+            <h1>🏆 DESAFIOS DE ELITE</h1>
+        </header>
+
+        <div class="progress-bar" id="challenge-progress">
+            <div class="progress-bar__fill" id="challenge-progress-fill"></div>
+        </div>
+        <div id="challenge-progress-text" class="progress-bar__text">0/0 desafios concluídos</div>
+
+        <div id="challenges-list" class="workout-list"></div>
+    </div>
+
+    <div id="feedback-view" class="view">
+        <header>
+            <span onclick="goBack()" style="color: var(--accent); font-size: 14px; cursor:pointer;">← Voltar</span>
+            <h1>📝 Diário de Bordo</h1>
+        </header>
+        <p style="color: #888; font-size: 14px; margin-bottom: 20px;">
+            Anote observações, cargas ou ideias. Tudo fica salvo aqui.
+        </p>
+        <textarea id="feedback-input" class="feedback-input" rows="4" placeholder="Ex: Aumentar carga no terra..."></textarea>
+        <button class="btn-done" style="border-radius: 12px; margin-bottom: 30px;" onclick="addFeedback()">SALVAR NOTA</button>
+        <h3 style="margin-bottom: 15px;">Histórico</h3>
+        <div id="feedback-list"></div>
+    </div>
+
+    <div id="info-modal" class="info-modal" role="dialog" aria-modal="true">
+        <div class="info-modal__card">
+            <h3 id="info-modal-title" class="info-modal__title"></h3>
+            <p id="info-modal-text" class="info-modal__text"></p>
+            <button class="btn-done" onclick="hideInfo()">FECHAR</button>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
